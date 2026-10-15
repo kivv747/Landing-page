@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  background: #f2f0e8;
+  color: #1c201a;
+}
+
+:root.dark {
+  color-scheme: dark;
+  background: #141510;
+  color: #f3f0e6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Space Grotesk", sans-serif;
+  transition:
+    background-color 280ms ease,
+    color 280ms ease;
+}
+
+::selection {
+  background: #ff7659;
+  color: #141510;
+}
+
+.caret-blink {
+  animation: caret-blink 1.05s steps(2, start) infinite;
+}
+
+@keyframes caret-blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
