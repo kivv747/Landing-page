@@ -34,6 +34,7 @@ type RepoCardProps = {
 
 export function RepoCard({ repository, index }: RepoCardProps) {
   const reduceMotion = useReducedMotion();
+  const isFeatured = index < 2;
   const languageColor = repository.language
     ? languageColors[repository.language] ?? "#8b9184"
     : "#8b9184";
@@ -55,7 +56,7 @@ export function RepoCard({ repository, index }: RepoCardProps) {
       }}
       whileHover={reduceMotion ? undefined : { scale: 1.012 }}
       transition={{ type: "spring", stiffness: 240, damping: 27, mass: 0.7 }}
-      className={`${cardLayouts[index % cardLayouts.length]} group relative flex flex-col justify-between overflow-hidden border border-[#c7c7bc]/80 bg-white/65 p-5 shadow-[0_8px_28px_rgba(35,35,25,0.035)] backdrop-blur-md transition-[border-color,box-shadow,background-color] duration-300 hover:border-[#b83b24]/70 hover:shadow-[0_0_24px_rgba(184,59,36,0.13)] sm:p-6 dark:border-white/15 dark:bg-white/[0.045] dark:shadow-[0_8px_28px_rgba(0,0,0,0.12)] dark:hover:border-[#ff7659]/70 dark:hover:shadow-[0_0_26px_rgba(255,118,89,0.13)]`}
+      className={`${cardLayouts[index % cardLayouts.length]} group relative flex flex-col justify-between overflow-hidden border border-[#c7c7bc]/80 bg-white/65 p-5 shadow-[0_8px_28px_rgba(35,35,25,0.035)] backdrop-blur-md transition-[border-color,box-shadow,background-color] duration-300 hover:border-[#b83b24]/70 ${isFeatured ? "hover:shadow-[0_0_24px_rgba(184,59,36,0.13)] dark:hover:shadow-[0_0_26px_rgba(255,118,89,0.13)]" : ""} sm:p-6 dark:border-white/15 dark:bg-white/[0.045] dark:shadow-[0_8px_28px_rgba(0,0,0,0.12)] dark:hover:border-[#ff7659]/70`}
     >
       <a
         href={repository.html_url}

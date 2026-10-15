@@ -163,7 +163,7 @@ export default function HomePage() {
           <p className="inline-flex items-center gap-2 text-[#1c201a] dark:text-[#f3f0e6]">
             <span
               aria-hidden="true"
-              className="size-2 rounded-full bg-emerald-500 motion-safe:animate-pulse"
+              className="size-2 rounded-full bg-emerald-700 dark:bg-emerald-400"
             />
             System Online
           </p>
